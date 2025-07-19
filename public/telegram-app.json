@@ -1,0 +1,20 @@
+{
+  "name": "TON Wallet Auth",
+  "short_name": "TON Auth",
+  "description": "Conecte sua carteira TON através do Telegram",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "app": {
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    }
+  },
+  "permissions": [
+    "storage",
+    "https://telegram.org/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' https://telegram.org; object-src 'self'"
+  }
+} 

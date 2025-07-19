@@ -3,10 +3,19 @@
 import { TonConnectButton, useTonWallet } from "@tonconnect/ui-react";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import React from "react";
+import TelegramMiniApp from "./components/TelegramMiniApp";
+import { useTelegram } from "./hooks/useTelegram";
 
 function HomeContent() {
   const wallet = useTonWallet();
+  const { isReady } = useTelegram();
 
+  // Se estiver rodando no Telegram, mostra o Mini App
+  if (isReady) {
+    return <TelegramMiniApp />;
+  }
+
+  // Caso contrário, mostra a versão web normal
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-background to-foreground/5 relative">
       <div className="text-center">
